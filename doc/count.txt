@@ -1,0 +1,88 @@
+*count.txt*	Plugin to count patterns
+                                                Last change: 2014 Sep 28.
+
+SYNOPSIS						*count-synopsis*
+>
+	" counts with a pattern
+	:Count \C\<patten\>
+
+	" if pattern is not specified, the last search pattern will be used
+	:Count
+
+	" with mapping <Leader>ci, you can specify a pattern
+	" <Leader>cn will use the last search pattern
+
+DESCRIPTION						*count-description*
+
+Plugin to count patterns.
+
+DEPENDENCIES						*count-dependencies*
+
+This plugin require following autoload file.
+
+https://github.com/januswel/jwlib.vim/blob/master/autoload/jwlib/buf.vim
+
+See https://github.com/januswel/jwlib.vim .
+
+PROVIDES						*count-provides*
+
+Mappings:
+n_<Leader>cn or <Plug>(count-in-buffer)
+	Counts with the last search pattern in the current buffer.
+
+n_<Leader>ci or <Plug>(count-in-buffer-input)
+	Counts with the pattern you input in the current buffer.
+
+v_<Leader>cn or <Plug>(count-in-highlited)
+	Counts with the last search pattern in the visual highlited
+	characters.
+
+v_<Leader>ci or <Plug>(count-in-highlited-input)
+	Counts with the pattern you input in the visual highlited characters.
+
+Commands:
+:[range]Count [pat]
+	Counts with the pattern [pat] in the current buffer.
+
+	If [pat] is not specified, the last search pattern is used.
+
+SETTINGS						*count-settings*
+
+This plugin doesn't have any settings.
+
+DISABLES						*count-disables*
+
+Variables:
+g:loaded_count
+	When exists, does nothing.  Use to disable this plugin.
+
+g:no_count_maps
+	When non-zero, doesn't register any effective mappings.
+
+g:no_plugin_maps
+	When non-zero, doesn't register any effective mappings.  This variable
+	may have an affect on mappings of other plugins.  Use
+	"g:no_count_maps" to disable only mappings of this plugin.
+
+KOWN ISSUES						*count-knownissues*
+
+Searching with visual highlighted text is very slow.  Don't use with large
+block like bigger than 10000 lines.
+
+VIM has many constraint about search with non-"buffer"ed text...  If you know
+the good way, tell me it.
+
+
+==============================================================================
+
+Author
+	janus_wel <janus.wel.3@gmail.com>
+Copyright
+	(c) 2014 by janus_wel
+License
+	This material may be distributed only subject to the terms and
+	conditions set forth in the Open Publication License, v1.0 or later
+	(the latest version is presently available at
+	http://www.opencontent.org/openpub/).
+
+vim:tw=78:ts=8:noet:ft=help:norl:
